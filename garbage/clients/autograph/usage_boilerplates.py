@@ -18,6 +18,9 @@ datetime_end = datetime.datetime(year=2022, month=10, day=10, hour=23, minute=59
 statistics = service.get_cars_statistic(datetime_start, datetime_end, cars, schema_id)
 print(statistics)
 
+car_id = service.get_car_id('1202808', schema_id)
+print(car_id)
+
 
 
 

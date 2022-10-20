@@ -27,6 +27,11 @@ class AutographService(AbstractAutographService):
         self.login = login
         self.password = password
 
+    def get_car_id(self, serial: str, schema_id: str, token: Optional[str] = None) -> Optional[str]:
+        for car in self.get_schema_cars_simple(schema_id, token):
+            if str(car['serial']) == serial:
+                return car['id']
+
     def get_cars_statistic(
         self,
         datetime_start: datetime.datetime,
