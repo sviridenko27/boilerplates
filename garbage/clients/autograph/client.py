@@ -142,12 +142,6 @@ class AutographService(AbstractAutographService):
         return response.json()
 
     @staticmethod
-    def _serialize_trip_data(data: List[dict]) -> List[dict]:
-
-
-        return data
-
-    @staticmethod
     def _serialize_datetime(value: datetime.datetime, template: Optional[str] = '%Y%m%d-%H%M') -> str:
         return value.strftime(template)
 
