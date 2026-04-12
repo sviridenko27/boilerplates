@@ -6,11 +6,12 @@ from urllib.parse import urljoin
 class AbstractHTTPClient(ABC):
     # TODO: добавить exceptions
     # TODO: добавить имплементацию с авторизацией
+    # TODO: добавить сигнатуру для cookies
 
-    def __init__(self, base_url: str, request_timeout: int = 60, headers: Optional[dict] = None):
-        self.url = base_url
-        self.request_timeout = request_timeout
-        self.__headers = headers or {}
+    BASE_URL: str
+    GENERAL_HEADERS: dict
+    COOKIES: dict
+    REQUEST_TIMEOUT: int = 60
 
     def request(
         self,
@@ -26,9 +27,6 @@ class AbstractHTTPClient(ABC):
 
     def _urljoin(self, url: str, uri: str) -> str:
         return urljoin(url, uri)
-
-    def _headersjoin(self, headers, extend_headers: Optional[dict]) -> dict:
-        return {**headers, **extend_headers}
 
     def _urijoin(self, uri_parts: tuple[str]) -> str:
         return '/'.join(uri_parts)
