@@ -1,0 +1,23 @@
+[project]
+name = 'project-name'
+version = '0.1.0'
+description = ''
+
+dependencies = []
+
+[tool.setuptools]
+py-modules = []
+
+[tool.ruff]
+# prek run --all-files
+target-version = "py312"
+lint.isort.combine-as-imports = true
+line-length = 120
+fix = true
+exclude = ['__init__.py']
+lint.select = [
+    "E",    # pycodestyle errors
+    "F",    # pyflakes
+    "I",    # isort
+    "Q",    # flake8-quotes
+]
